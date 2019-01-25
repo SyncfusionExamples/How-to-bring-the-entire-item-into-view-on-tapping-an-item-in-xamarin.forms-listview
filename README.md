@@ -4,6 +4,8 @@ This example demonstrates how to bring the entire listview item into view on tap
 
 You can call [ScrollToRowIndex](https://help.syncfusion.com/cr/cref_files/xamarin/Syncfusion.SfListView.XForms~Syncfusion.ListView.XForms.LayoutBase~ScrollToRowIndex.html) method when an item is tapped and bring that item into view if it is not fully visible. 
 
+You can refer [How to bring the entire listview item into view on tapping an item in xamarin.forms listview configured as expandable listview?](https://www.syncfusion.com/kb/10111/how-to-bring-the-entire-item-into-view-on-tapping-an-item-in-xamarin-forms-expandable-listview) for more details.
+
 ```
 namespace Accordion
 {
