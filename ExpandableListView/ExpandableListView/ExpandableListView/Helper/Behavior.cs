@@ -70,33 +70,17 @@ namespace Accordion
         {
             if (tappedItem != null && tappedItem.IsVisible)
             {
-                var previousIndex = listview.DataSource.DisplayItems.IndexOf(tappedItem);
                 tappedItem.IsVisible = false;
             }
 
             if (tappedItem == ItemData)
             {
-                if (Device.RuntimePlatform == Device.macOS)
-                {
-                    var previousIndex = listview.DataSource.DisplayItems.IndexOf(tappedItem);
-                }
                 tappedItem = null;
                 return;
             }
 
             tappedItem = ItemData;
             tappedItem.IsVisible = true;
-
-            if (Device.RuntimePlatform == Device.macOS)
-            {
-                var firstIndex = visibleLines[visibleLines.FirstBodyVisibleIndex].LineIndex;
-                var lastIndex = visibleLines[visibleLines.LastBodyVisibleIndex].LineIndex;
-            }
-            else
-            {
-                var currentIndex = listview.DataSource.DisplayItems.IndexOf(ItemData);
-            }
-
         }
 
         #endregion
