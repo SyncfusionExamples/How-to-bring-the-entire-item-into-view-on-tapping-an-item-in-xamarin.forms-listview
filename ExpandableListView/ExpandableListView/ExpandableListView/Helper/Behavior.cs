@@ -1,24 +1,29 @@
-using System.Linq;
+﻿using System.Linq;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms.Internals;
+using Syncfusion.ListView.XForms.Helpers;
 using Syncfusion.ListView.XForms.Control.Helpers;
-using Syncfusion.GridCommon.ScrollAxis;
+using Syncfusion.GridCommon.ScrollAxis; 
 using Syncfusion.ListView.XForms;
+using System.Reflection;
+using System;
 
-namespace AutoFit
+namespace Accordion
 {
-    internal class SfListViewAccordionBehavior : Behavior<ContentPage>
+    internal class SfListViewAccordionBehavior : Behavior<SfListView>
     {
         #region Fields
 
         private Contact tappedItem;
         private Syncfusion.ListView.XForms.SfListView listview;
         private AccordionViewModel AccordionViewModel;
+        VisualContainer visualContainer;
+        private ScrollAxisBase scrollRows;
         public VisibleLinesCollection visibleLines;
-
+        ExtendedScrollView scrolview;
         #endregion
 
         #region Properties
@@ -31,13 +36,12 @@ namespace AutoFit
 
         #region Override Methods
 
-        protected override void OnAttachedTo(ContentPage bindable)
+        protected override void OnAttachedTo(SfListView bindable)
         {
             listview = bindable.FindByName<Syncfusion.ListView.XForms.SfListView>("listView");
             listview.ItemsSource = AccordionViewModel.ContactsInfo;
             listview.ItemTapped += ListView_ItemTapped;
         }
-
         #endregion
 
         #region Private Methods
@@ -97,9 +101,10 @@ namespace AutoFit
 
         #endregion
 
-        protected override void OnDetachingFrom(ContentPage bindable)
+        protected override void OnDetachingFrom(SfListView bindable)
         {
             listview.ItemTapped -= ListView_ItemTapped;
         }
     }
 }
+
